@@ -9,7 +9,7 @@
 
            <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Dashboard</a>
@@ -30,6 +30,46 @@
         </div>
         <hr style="height: 10px;">
         {{!-- {{description}} --}}
+        <div class="container bg-light d-flex flex-column" style="height:700px;">
+          <div class=" bg-danger text-center"> 
+            <h1> Home Page</h1>          
+            </div>
+
+            <div class=" flex-grow-1 align-self-center " >
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+New Post</button>
+            <div>
+
+            </div>
+
+        </div>
+      
 
       
     </header>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title " id="staticBackdropLabel">Create new Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+  
+
+<div class="input-group input-group-lg m-2">
+  <input type="text" id="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="write your title here">
+</div>
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Description</label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="submitpost">submit your post</button>
+      </div>
+    </div>
+  </div>
+</div>
