@@ -1,52 +1,11 @@
- <header>
 
-      <div class="d-flex justify-content-between ">
-        <div>
-          <h1>My Blog's</h1>
-        </div>
-        <div>
-          <h3>
-
-           <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
-         
-        </ul>
-                  </h3>
-
-        </div>
-       
-        
-        </div>
-        <hr style="height: 10px;">
-        {{!-- {{description}} --}}
-        <div class="container bg-light d-flex flex-column" style="height:700px;">
-          <div class=" bg-danger text-center"> 
-            <h1> Home Page</h1>          
-            </div>
 
             <div class=" flex-grow-1 align-self-center " >
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 New Post</button>
             <div>
 
-            </div>
 
-        </div>
-      
-
-      
-    </header>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -62,7 +21,7 @@ New Post</button>
   <input type="text" id="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="write your title here">
 </div>
 <div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px"></textarea>
+  <textarea class="form-control" placeholder="description here" id="description" style="height: 100px"></textarea>
   <label for="floatingTextarea2">Description</label>
 </div>
       </div>
