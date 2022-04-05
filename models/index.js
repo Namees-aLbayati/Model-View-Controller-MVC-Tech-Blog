@@ -35,6 +35,7 @@ User.hasMany(Comment,{
 
 });
 
+
 module.exports={User,Posting,Comment}
 
 

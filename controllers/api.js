@@ -3,10 +3,12 @@ const Auth=require('../utils/Auth')
 
 const { User, Comment, Posting } = require('../models')
 router.get('/',async (req, res) => {
-const postGet=await Posting.findAll({include:[{model:User},{model:Comment}]});
-const Infos= postGet.map((info)=>info.get({plain:true}));
-// console.log(Infos)
-  res.render('home',{Infos,logged_in:req.session.log});
+  const data=await Posting.findAll({include:[{model:Comment,include:[{model:User}]},{model:User,include:[{model:Comment}]}]})
+1 
+// const postGet=await Posting.findAll({include:[{model:User,include:[{model:Comment}]},{model:Comment}]});
+const Infos= data.map((info)=>info.get({plain:true}));
+console.log(Infos)
+  res.render('home',{Infos,logged_in:req.session.logged_in});
 });
 
 
@@ -20,6 +22,9 @@ router.get('/dashboard',Auth,async (req, res) => {
 })
 
 router.get('/signin', async (req, res) => {
+  if(req.session.logged_in){
+    res.redirect('/')
+  }
   res.render('signin')
 })
 router.get('/signup', async (req, res) => {
@@ -113,7 +118,9 @@ router.post('/comment',async(req,res)=>{
     post_id:req.body.post_id,
     user_id:req.session.user_id,
   });
-  res.status(202).json(userData)
+  res.status(222);
+
+
 }catch(err){
   res.status(404).json(err)
 }

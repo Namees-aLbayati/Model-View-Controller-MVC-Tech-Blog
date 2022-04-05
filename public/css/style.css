@@ -83,8 +83,8 @@ button:hover {
 @media screen and (max-width: 500px) {
   
   .aside{
-    background-color: lightsalmon;
-    max-width: 200px;
+    background-color: goldenrod;
+    min-width: 500px;
   }
 }
 

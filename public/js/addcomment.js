@@ -17,6 +17,7 @@ if(commentEL.value.trim()){
 
     if(fetchData.ok){
         alert('comment created')
+        window.location.href='/'
     }else{
         alert('err in comment created')
     }

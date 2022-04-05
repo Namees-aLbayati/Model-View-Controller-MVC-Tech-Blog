@@ -1,14 +1,29 @@
 {{#each Infos as |info|}}
-<div class="card">
-  <h7 class="card-header">{{info.title}}</h7>
+<div class="card  card-secondary">
+
+  <div class="d-flex  card-header">
+      <h7 class="card-header ">{{info.title}} </h7>
+          <p class="card-body" style="font-size: 10px; color:cornflowerblue">posted By:{{info.user.username}}</p>
+
+
+  </div>
+
   <div class="card-body">
     <p class="card-title">{{info.description}}</p>
  
-  <p class="card-body" style="font-size: 10px; color:cornflowerblue">posted By:{{info.user.username}}</p>
-{{post.comment.comment}}
+  {{#each info.comments as |comment|}}
+    <p class="card-body bg-light" style="font-size: 10px; color:cornflowerblue">{{comment.comment}} Commented By:
+      <b class="text-dark">
+      {{comment.user.username}}
+
+      </b>
+    </p>
+
+{{/each}}
     <a href="/post/{{info.id}}" class="btn btn-primary">add comment</a>
   </div>
-</div>
 
+</div>
+  
   {{/each}}
 
