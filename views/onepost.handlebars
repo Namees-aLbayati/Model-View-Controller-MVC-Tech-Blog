@@ -1,11 +1,40 @@
 <div class="card">
   <h7 style="background-color: rgb(60,179,113)
-;">{{title}}</h7>
+;">{{post.title}}</h7>
   <div class="card-body">
-    <p class="card-title">{{description}}</p>
+    <p class="card-title">{{post.description}}
+    </p>
  
-  <p class="card-body" style="font-size: 10px; color:cornflowerblue">posted By:{{user.username}}</p>
+  <p class="card-body" style="font-size: 10px; color:cornflowerblue">posted By:{{post.user.username}}</p>
   </div>
+  <hr>
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">comment</th>
+      <th scope="col">Username</th>
+      <th scope="col">time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each post.comments as |comments|}}
+    <tr>
+      <td>{{comments.comment}}</td>
+            <td>{{comments.user.username}}</td>
+
+      <td>{{comments.createdAt}}</td>
+    </tr>
+    {{/each}}
+
+ 
+  </tbody>
+</table>
+
+
+
+ 
+  <p  id="post_id" class="{{post.id}}"></p>
   <textarea placeholder="add comment here" id="comment"></textarea>
   <button type="submit" id="submit">submit your comment</button>
 </div>

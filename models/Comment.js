@@ -15,7 +15,7 @@ comment:{
 post_id:{
     type:DataTypes.INTEGER,
     references:{
-        model:"user",
+        model:"posting",
         key:"id"
     }
 },

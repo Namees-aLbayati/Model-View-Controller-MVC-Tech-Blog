@@ -10,11 +10,7 @@ const Infos= postGet.map((info)=>info.get({plain:true}));
 });
 
 
-router.get('/post/:id',async(req,res)=>{
-  const data=await Posting.findOne({where:{id:req.params.id},include:[{model:User}]})
-console.log(data.get({plain:true}))
-res.render('onepost',data.get({plain:true}))
-})
+
 
 
 router.get('/dashboard',Auth,async (req, res) => {
@@ -109,12 +105,33 @@ router.get('/get', async (req, res) => {
 
 )
 
+router.post('/comment',async(req,res)=>{
+  console.log(req.body,'recived comment');
+  try{
+  const userData=await Comment.create({
+    comment:req.body.comment,
+    post_id:req.body.post_id,
+    user_id:req.session.user_id,
+  });
+  res.status(202).json(userData)
+}catch(err){
+  res.status(404).json(err)
+}
+ 
 
+});
+
+router.get('/post/:id',async(req,res)=>{
+  const data=await Posting.findOne({where:{id:req.params.id},include:[{model:Comment,include:[{model:User}]},{model:User}]})
+const post=data.get({plain:true})
+
+res.render('onepost',{post,logged_in:req.session.logged_in})
+})
 
 router.get('/logout',(req,res)=>{
 
   
-  console.log(req.session.logged_in);
+  // console.log(req.session.logged_in);
   if(req.session.logged_in){
 
     req.session.destroy(() => {
