@@ -15,10 +15,9 @@ const fetchData=async(e)=>{
         body:JSON.stringify(userData)});
         if(fetching.ok){
             alert('Your In ')
-        window.location.href = "/"
+        window.location.href = "/dashboard"
 
-        } 
-        else{
+        }else{
 alert('Please check your email or password,and Try again!!')
         }
 

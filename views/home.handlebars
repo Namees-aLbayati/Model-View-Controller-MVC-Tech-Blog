@@ -1,3 +1,14 @@
-<div class="bg-danger">
-  <h1> hello home</h1>
+{{#each Infos as |info|}}
+<div class="card">
+  <h7 class="card-header">{{info.title}}</h7>
+  <div class="card-body">
+    <p class="card-title">{{info.description}}</p>
+ 
+  <p class="card-body" style="font-size: 10px; color:cornflowerblue">posted By:{{info.user.username}}</p>
+{{post.comment.comment}}
+    <a href="/post/{{info.id}}" class="btn btn-primary">{{info.id}}</a>
+  </div>
 </div>
+
+  {{/each}}
+
