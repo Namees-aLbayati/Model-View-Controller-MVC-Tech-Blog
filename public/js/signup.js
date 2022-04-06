@@ -21,8 +21,10 @@ const fetchData=async(event)=>{
      body:JSON.stringify(userData)
  })
 
+
  const response= (await fetchUserData).json().then((data)=>{
-     alert(data.message)
+     alert(data.message);
+window.location.href='/'
  })
  usernameEl.value="";
  emailEl.value="";

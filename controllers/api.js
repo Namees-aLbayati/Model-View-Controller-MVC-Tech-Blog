@@ -16,8 +16,11 @@ console.log(Infos)
 
 
 router.get('/dashboard',Auth,async (req, res) => {
-  
-  res.render('dashboard');
+  const userPost=await Posting.findAll({where:{user_id:req.session.user_id},include:[{model:User}]});
+
+
+  const posts=userPost.map((post)=>  post.get({plain:true}))
+  res.render('dashboard',{posts,logged_in:req.session.logged_in});
   
 })
 
@@ -29,6 +32,7 @@ router.get('/signin', async (req, res) => {
 })
 router.get('/signup', async (req, res) => {
   res.render('signup')
+  
 })
 
 router.post('/signup/user', async (req, res) => {
@@ -96,6 +100,7 @@ router.post('/post/user', async (req, res) => {
   }
 
 });
+
 
 
 router.get('/get', async (req, res) => {

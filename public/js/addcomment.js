@@ -14,6 +14,7 @@ if(commentEL.value.trim()){
         },
         body:JSON.stringify(userData)
     });
+    
 
     if(fetchData.ok){
         alert('comment created')

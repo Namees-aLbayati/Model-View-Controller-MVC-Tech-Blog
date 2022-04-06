@@ -1,9 +1,23 @@
+<h1> your posts</h1> 
 
+{{#each posts as |post|}}
 
-            <div class=" flex-grow-1 align-self-center " >
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<hr>
+  <div class="card">
+  <h5 class="card-header">{{post.title}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{post.description}}</h5>
+    <p class="card-text">{{formatData post.createdAt}}</p>
+    {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+  </div>
+
+</div>
+ 
+  
+    
+{{/each}}
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 New Post</button>
-            <div>
 
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
