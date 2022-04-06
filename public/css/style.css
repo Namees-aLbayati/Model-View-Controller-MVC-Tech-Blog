@@ -9,6 +9,18 @@
   --border-radius: 0.3rem;
 }
 
+.editpost{
+  text-decoration: none;
+  cursor:grab;
+  
+}
+.border{
+  border-width: 20px;
+}
+.namees{
+  
+}
+
 
 * {box-sizing: border-box}
 
@@ -81,11 +93,11 @@ button:hover {
     display: none;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   
   .aside{
-    background-color: goldenrod;
-    min-width: 500px;
+    background-color:rgba(30, 222, 100, 0.19);
+    min-width: 700px;
   }
 }
 

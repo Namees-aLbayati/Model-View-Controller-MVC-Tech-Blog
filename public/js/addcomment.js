@@ -14,15 +14,14 @@ if(commentEL.value.trim()){
         },
         body:JSON.stringify(userData)
     });
+
+    const result= fetchData.json().then((data)=>{
+        alert(data.message)
+
+    })
     
 
-    if(fetchData.ok){
-        alert('comment created')
-        window.location.href='/'
-    }else{
-        alert('err in comment created')
-    }
-
+ 
 }else{
     alert('you need to write a comment before submit it')
 }
@@ -31,3 +30,8 @@ commentEL.value=""
 };
 
 submitComment.addEventListener('click',sendData)
+
+
+
+
+

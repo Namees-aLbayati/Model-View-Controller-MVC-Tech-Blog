@@ -14,7 +14,7 @@ const  sendData= async (event)=>{
 
 if(response.ok){
     alert('post created');
-    // window.location.href='/'
+    window.location.href='/dashboard'
 }else{
     alert('ERROR!!!try again');
 
@@ -25,3 +25,6 @@ titleEL.value=""
 
 }
 submitEL.addEventListener('click',sendData)
+
+
+

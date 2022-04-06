@@ -1,6 +1,7 @@
 <h1> your posts</h1> 
 
 {{#each posts as |post|}}
+      {{!-- <a href="/post/dashboard/{{post.id}}" class="editpost" > --}}
 
 <hr>
   <div class="card">
@@ -8,16 +9,35 @@
   <div class="card-body">
     <h5 class="card-title">{{post.description}}</h5>
     <p class="card-text">{{formatData post.createdAt}}</p>
-    {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
-  </div>
+    {{#each post.comments as |comment|}}
+
+<div class="form-floating p-3" >
+
+  <textarea class="form-control" placeholder="Leave a comment here" disabled id="floatingTextarea2" style="height: 100px">
+{{comment.comment}} 
+commented By:{{comment.user.username}}
+Time:{{formatData comment.createdAt}}
+</textarea>
+
+</div> 
+
+{{/each}} 
+
 
 </div>
- 
   
+
+</div>
+
+ 
+
     
 {{/each}}
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 New Post</button>
+
+
 
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -36,7 +56,6 @@ New Post</button>
 </div>
 <div class="form-floating">
   <textarea class="form-control" placeholder="description here" id="description" style="height: 100px"></textarea>
-  <label for="floatingTextarea2">Description</label>
 </div>
       </div>
       <div class="modal-footer">
@@ -47,3 +66,4 @@ New Post</button>
   </div>
 </div>
 <script src="/js/post.js"></script>
+

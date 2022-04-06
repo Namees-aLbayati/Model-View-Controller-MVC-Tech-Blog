@@ -7,19 +7,19 @@ router.get('/',async (req, res) => {
 1 
 // const postGet=await Posting.findAll({include:[{model:User,include:[{model:Comment}]},{model:Comment}]});
 const Infos= data.map((info)=>info.get({plain:true}));
-console.log(Infos)
+// console.log(Infos)
   res.render('home',{Infos,logged_in:req.session.logged_in});
 });
 
 
 
 
-
 router.get('/dashboard',Auth,async (req, res) => {
-  const userPost=await Posting.findAll({where:{user_id:req.session.user_id},include:[{model:User}]});
+  const userPost=await Posting.findAll({where:{user_id:req.session.user_id},include:[{model:User,include:[{model:Comment}]},{model:Comment,include:[{model:User}]}]});
 
 
   const posts=userPost.map((post)=>  post.get({plain:true}))
+  // console.log(posts)
   res.render('dashboard',{posts,logged_in:req.session.logged_in});
   
 })
@@ -38,7 +38,7 @@ router.get('/signup', async (req, res) => {
 router.post('/signup/user', async (req, res) => {
   try {
     const userDB = await User.create(req.body);
-    console.log(userDB);
+    // console.log(userDB);
 
 
     req.session.save(() => {
@@ -71,7 +71,7 @@ router.post('/signin/user',async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      console.log(req.session.logged_in);
+      // console.log(req.session.logged_in);
       res.redirect(204, 'dashboard');
 
     })
@@ -123,11 +123,11 @@ router.post('/comment',async(req,res)=>{
     post_id:req.body.post_id,
     user_id:req.session.user_id,
   });
-  res.status(222);
+  res.json({message:"Comment created successfully"});
 
 
 }catch(err){
-  res.status(404).json(err)
+  res.json({message:"Error please try again!!"});
 }
  
 
@@ -154,6 +154,18 @@ res.redirect('/signin')
   }else{
     console.log('user already not logged in')
   }
+})
+
+router.get('/post/dashboard/:id',Auth,async(req,res)=>{
+  const findpost=await Posting.findOne({where:{id:req.params.id},include:[{model:Comment,include:[{model:User}]}]})
+  const dataPlained=findpost.get({plain:true});
+  // console.log('recived post on dash',dataPlained)
+
+  res.render('edit',dataPlained)
+})
+
+router.put('/post/:id',async(req,res)=>{
+  console.log('recived edit put',req.body)
 })
 
 
