@@ -1,5 +1,7 @@
 # Model-View-Controller-MVC-Tech-Blog
 using JS-express-session-DB-bcrypt-handlebars
+* workthrough Video on Google Drive https://drive.google.com/file/d/1P6_fLGseGI7M550ow8AXoseCr7tZU-2p/view?usp=sharing
+
 # screenshot to my APP
 <img width="1440" alt="Screen Shot 2022-04-06 at 2 02 10 PM" src="https://user-images.githubusercontent.com/95061565/162049996-91fcb5c4-c194-4cfd-8cf2-477c8cfe819d.png">
 
