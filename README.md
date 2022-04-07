@@ -5,6 +5,11 @@ communication page which allow user to create posts and follow another user's po
 
 # screenshot to my APP
 
+
+<img width="1440" alt="Screen Shot 2022-04-07 at 12 40 05 PM" src="https://user-images.githubusercontent.com/95061565/162264038-482f375f-9c4a-438f-b533-f11b79b049f2.png">
+<img width="1440" alt="Screen Shot 2022-04-07 at 12 40 02 PM" src="https://user-images.githubusercontent.com/95061565/162264046-9dae2939-29b1-4b10-bad8-c2b824d001dd.png">
+
+
 <img width="1440" alt="Screen Shot 2022-04-06 at 2 04 02 PM" src="https://user-images.githubusercontent.com/95061565/162263503-41b640e2-5531-4806-a535-a8e5cebd556e.png">
 
 <img width="1440" alt="Screen Shot 2022-04-07 at 12 35 21 PM" src="https://user-images.githubusercontent.com/95061565/162263466-5b991eaa-8404-45f3-a449-ea7fbcc13cf6.png">
