@@ -23,7 +23,7 @@ const result= requestfetch.json().then((data)=>{
     alert(data.message)
     desc.value=""
     titleEl.value=""
-    window.location.href='/dashboard/'
+    window.location.href='/dashboard'
 })
 
 
