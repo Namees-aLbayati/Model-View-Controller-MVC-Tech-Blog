@@ -1,37 +1,8 @@
-<h1> your posts</h1> 
+<h1> Created Posts</h1> 
+<hr>
 
 {{#each posts as |post|}}
-      {{!-- <a href="/post/dashboard/{{post.id}}" class="editpost" > --}}
-
-<hr>
-  <div class="card">
-  <h5 class="card-header">{{post.title}}</h5>
-  <div class="card-body">
-    <h5 class="card-title">{{post.description}}</h5>
-    <p class="card-text">{{formatData post.createdAt}}</p>
-    {{#each post.comments as |comment|}}
-
-<div class="form-floating p-3" >
-
-  <textarea class="form-control" placeholder="Leave a comment here" disabled id="floatingTextarea2" style="height: 100px">
-{{comment.comment}} 
-commented By:{{comment.user.username}}
-Time:{{formatData comment.createdAt}}
-</textarea>
-
-</div> 
-
-{{/each}} 
-
-
-</div>
-  
-
-</div>
-
- 
-
-    
+{{> userpost post}}
 {{/each}}
 
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

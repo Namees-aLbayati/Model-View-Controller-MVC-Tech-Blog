@@ -15,14 +15,56 @@ const Infos= data.map((info)=>info.get({plain:true}));
 
 
 router.get('/dashboard',Auth,async (req, res) => {
-  const userPost=await Posting.findAll({where:{user_id:req.session.user_id},include:[{model:User,include:[{model:Comment}]},{model:Comment,include:[{model:User}]}]});
+  const userPost=await Posting.findAll({where:{user_id:req.session.user_id},include:[{model:User},{model:Comment,include:[{model:User}]}]});
 
 
   const posts=userPost.map((post)=>  post.get({plain:true}))
-  // console.log(posts)
+  console.log(posts)
   res.render('dashboard',{posts,logged_in:req.session.logged_in});
   
 })
+
+router.get('/dashboard/user/edit/:id',Auth,async(req,res)=>{
+  try {
+    const postData = await Posting.findByPk(req.params.id);
+    if (postData) {
+      const post = postData.get({ plain: true });
+      res.render('try', 
+        post
+      );
+    } else {
+console.log('error')    }
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+router.put('/post/edit/:id',Auth,async(req,res)=>{
+  console.log('recived edit put',req.body)
+  const editPost=await Posting.update({description:req.body.description,title:req.body.title},{where:{id:req.params.id}})
+  console.log(editPost== 1 )
+  console.log(editPost)
+  if(editPost ==1){
+    res.json({message:"POST Edited succesfully"})
+  }else{
+    res.json({message:"OoOoOps ,POST Editing Faild!!! try again"})
+
+  }
+
+})
+
+router.delete('/post/delete/:id',Auth,async(req,res)=>{
+  const Deletepost=await Posting.destroy({where:{id:req.params.id}})
+  if(Deletepost ==1){
+    res.json({message:"POST DELETED succesfully"})
+  }else{
+    res.json({message:"OoOoOps ,Err,try again"})
+
+  }
+
+})
+
+
 
 router.get('/signin', async (req, res) => {
   if(req.session.logged_in){

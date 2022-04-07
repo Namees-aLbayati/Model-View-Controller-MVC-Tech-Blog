@@ -1,0 +1,39 @@
+
+{{!-- {{this.title}} --}}
+
+  <div class="card ">
+
+  <h5 class="card-header flex-row justify-space-between">
+
+       <a href="dashboard/user/edit/{{id}}" class="editpost" > {{title}}</a></h5>
+  <div class="card-body">
+    <h5 class="card-title">{{description}}</h5>
+    <p class="card-text">{{formatData createdAt}}</p> 
+    created by: {{user.username}}
+    <hr>
+    {{#if comments}}
+Comments    {{/if}}
+    {{#each comments as |comment|}}
+
+<div class="form-floating p-3" >
+
+  <textarea class="form-control" placeholder="Leave a comment here" disabled id="floatingTextarea2" style="height: 100px">
+{{comment.comment}} 
+commented By:{{comment.user.username}}
+Time:{{formatData comment.createdAt}}
+</textarea>
+
+
+</div> 
+
+{{/each}} 
+
+
+</div>
+  
+
+</div>
+
+ 
+  
+         
