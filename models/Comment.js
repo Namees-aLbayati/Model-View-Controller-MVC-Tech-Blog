@@ -14,10 +14,10 @@ comment:{
 },
 post_id:{
     type:DataTypes.INTEGER,
-    references:{
-        model:"posting",
-        key:"id"
-    }
+    // references:{
+    //     model:"posting",
+    //     key:"id"
+    // }
 },
 user_id:{
     type:DataTypes.INTEGER,

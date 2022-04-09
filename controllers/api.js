@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Auth=require('../utils/Auth')
 
-const { User, Comment, Posting } = require('../models')
+const { Posting,Comment,User } = require('../models')
 router.get('/',async (req, res) => {
   const data=await Posting.findAll({include:[{model:Comment,include:[{model:User}]},{model:User,include:[{model:Comment}]}]})
 1 

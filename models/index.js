@@ -1,8 +1,8 @@
 const Posting=require('./Posting');
 const Comment=require('./Comment');
 const User=require('./User');
-Comment.belongsTo(User);
-Comment.belongsTo(Posting);
+// Comment.belongsTo(User);
+// Comment.belongsTo(Posting);
 Posting.belongsTo(User,{
     foreignKey:"user_id"
 });
